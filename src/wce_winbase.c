@@ -1,5 +1,5 @@
 /*
- * $Id$
+ * $Id: wce_winbase.c 74 2009-02-04 13:45:23Z mloskot $
  *
  * Defines GetStdHandle() function with dummy implementation.
  *

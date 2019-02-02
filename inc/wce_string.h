@@ -1,11 +1,11 @@
-/* 
- * $Id$
+/*
+ * $Id: wce_string.h 66 2007-03-30 12:26:57Z sdunand $
  *
- * fcntl.h - file control options
+ * string.h - string operations
  *
  * Created by Mateusz Loskot (mateusz@loskot.net)
  *
- * Copyright (c) 2006 Mateusz Loskot
+ * Copyright (c) 2006 Taxus SI Ltd.
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the "Software"),
@@ -28,52 +28,40 @@
  * MIT License:
  * http://opensource.org/licenses/mit-license.php
  *
+ * Contact:
+ * Taxus SI Ltd.
+ * http://www.taxussi.com.pl
+ *
  */
-#ifndef WCEEX_FCNTL_H
-#define WCEEX_FCNTL_H	1
+#ifndef WCEEX_STRING_H
+#define WCEEX_STRING_H	1
 
 #if !defined(_WIN32_WCE)
-# error "Only Windows CE target is supported!"
+# error "Only Winddows CE target is supported!"
 #endif
 
-/* File control flags and functions
- *
- * Implementation based on the Open Group Base Specifications Issue 6,
- * IEEE Std 1003.1, 2004 Edition
- *
- * Windows CE Notes:
- *
- * Mostly, these flags are not used, but defined to feed compiler.
- * Also, some programs (ie. libtiff) translate textual file flags (r, rw, etc.)
- * file control flags.
- * Functions fcntl() and open() are not implemented.
- */
-
-/* File creation flags */
-
-#define O_CREAT        0x0100  /* Open or create file if it does not exist. */
-#define O_EXCL         0x0200  /* Exclusive file use. */
-#define O_NOCTTY	   0x0400  /* Do not assign controlling terminal. */
-#define O_TRUNC        0x1000  /* Open and truncate file. */
-
-/* File access and status flags */
-
-#define O_RDONLY       0x0000  /* Open for read only. */
-#define O_WRONLY       0x0001  /* Open for write only. */
-#define O_RDWR         0x0002  /* Open for reading and writing. */
-#define O_APPEND       0x2000  /* Set append mode. */
-
+#include <winbase.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif  /* __cplusplus */
 
+/* Redefine CRT functions with new names back to POSIX names. */
 
+#define strdup   _strdup
+#define stricmp  _stricmp
+#define strnicmp _strnicmp
 
+/* Function declarations */
+
+char * wceex_strerror(int errnum);
+
+LPWSTR wceex_lstrcpyn( LPWSTR lpString1, LPCWSTR lpString2, int iMaxLength );
 
 
 #ifdef __cplusplus
 }
 #endif  /* __cplusplus */
 
-#endif /* #ifndef WCEEX_FCNTL_H */
+#endif /* #ifndef WCEEX_STRING_H */
+

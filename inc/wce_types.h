@@ -1,7 +1,7 @@
 /*
- * $Id$
+ * $Id: wce_types.h 62 2007-01-17 00:04:39Z mloskot $
  *
- * errno.h - system error numbers
+ * sys/types.h - data types
  *
  * Created by Mateusz Loskot (mateusz@loskot.net)
  *
@@ -31,75 +31,32 @@
  * Contact:
  * Taxus SI Ltd.
  * http://www.taxussi.com.pl
- *
  */
-#ifndef WCEEX_ERRNO_H
-#define WCEEX_ERRNO_H	1
+#ifndef WCEEX_SYS_TYPES_H
+#define WCEEX_SYS_TYPES_H 1
 
 #if !defined(_WIN32_WCE)
 # error "Only Winddows CE target is supported!"
 #endif
-
 
 #ifdef __cplusplus
 extern "C" {
 #endif  /* __cplusplus */
 
 
-/*
-#if defined(_MT)
-#  error "errno as global variable does not work with multi threads"
+#ifndef _TIME_T_DEFINED
+typedef long    time_t;             /* Used for time in seconds. */
+# define _TIME_T_DEFINED
 #endif
-*/
-/* XXX - mloskot - make it thread-safe by calling (*_errno()) */
-extern int errno;
 
-
-/* Error Codes */
-
-#define EPERM           1
-#define ENOENT          2
-#define ESRCH           3
-#define EINTR           4
-#define EIO             5
-#define ENXIO           6
-#define E2BIG           7
-#define ENOEXEC         8
-#define EBADF           9
-#define ECHILD          10
-#define EAGAIN          11
-#define ENOMEM          12
-#define EACCES          13
-#define EFAULT          14
-#define EBUSY           16
-#define EEXIST          17
-#define EXDEV           18
-#define ENODEV          19
-#define ENOTDIR         20
-#define EISDIR          21
-#define EINVAL          22
-#define ENFILE          23
-#define EMFILE          24
-#define ENOTTY          25
-#define EFBIG           27
-#define ENOSPC          28
-#define ESPIPE          29
-#define EROFS           30
-#define EMLINK          31
-#define EPIPE           32
-#define EDOM            33
-#define ERANGE          34
-#define EDEADLK         36
-#define ENAMETOOLONG    38
-#define ENOLCK          39
-#define ENOSYS          40
-#define ENOTEMPTY       41
-#define EILSEQ          42
+#ifndef _SIZE_T_DEFINED
+typedef unsigned int    size_t;     /* Used for sizes of objects. */
+# define _SIZE_T_DEFINED
+#endif
 
 
 #ifdef __cplusplus
 }
 #endif  /* __cplusplus */
 
-#endif /* #ifndef WCEEX_ERRNO_H */
-
+#endif /* #ifndef WCEEX_SYS_TYPES_H */

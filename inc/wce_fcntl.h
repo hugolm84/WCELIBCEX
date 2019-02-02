@@ -1,7 +1,7 @@
-/*
- * $Id$
+/* 
+ * $Id: wce_fcntl.h 20 2006-11-18 17:00:30Z mloskot $
  *
- * unistd.h - defines symbolic constants, types, and declares miscellaneous functions
+ * fcntl.h - file control options
  *
  * Created by Mateusz Loskot (mateusz@loskot.net)
  *
@@ -29,55 +29,51 @@
  * http://opensource.org/licenses/mit-license.php
  *
  */
-#ifndef WCEEX_UNISTD_H
-#define WCEEX_UNISTD_H 1
+#ifndef WCEEX_FCNTL_H
+#define WCEEX_FCNTL_H	1
 
 #if !defined(_WIN32_WCE)
-# error "Only Winddows CE target is supported!"
+# error "Only Windows CE target is supported!"
 #endif
 
-/* Defines NULL pointer value */
-#include <stddef.h>
+/* File control flags and functions
+ *
+ * Implementation based on the Open Group Base Specifications Issue 6,
+ * IEEE Std 1003.1, 2004 Edition
+ *
+ * Windows CE Notes:
+ *
+ * Mostly, these flags are not used, but defined to feed compiler.
+ * Also, some programs (ie. libtiff) translate textual file flags (r, rw, etc.)
+ * file control flags.
+ * Functions fcntl() and open() are not implemented.
+ */
+
+/* File creation flags */
+
+#define O_CREAT        0x0100  /* Open or create file if it does not exist. */
+#define O_EXCL         0x0200  /* Exclusive file use. */
+#define O_NOCTTY	   0x0400  /* Do not assign controlling terminal. */
+#define O_TRUNC        0x1000  /* Open and truncate file. */
+
+/* File access and status flags */
+
+#define O_RDONLY       0x0000  /* Open for read only. */
+#define O_WRONLY       0x0001  /* Open for write only. */
+#define O_RDWR         0x0002  /* Open for reading and writing. */
+#define O_APPEND       0x2000  /* Set append mode. */
+
 
 #ifdef __cplusplus
 extern "C" {
 #endif  /* __cplusplus */
 
-/*
- * Symbolic constants for second argument to access() function.
- * All constants and following expressions R_OK|W_OK, R_OK|X_OK
- * and R_OK|W_OK|X_OK have distinct values.
- */
 
-#define	R_OK	4		/* Test for read permission. */
-#define	W_OK	2		/* Test for write permission. */
-#define	X_OK	1		/* Test for execute (search) permission. */
-#define	F_OK	0		/* Test for existence of file. */
 
-/* File accessibility functions. */
 
-int wceex_waccess(const wchar_t *path, int mode);
-int wceex_access(const char *path, int mode);
-
-/*
- * Variables used for communication with getopt() function 
- * to the caller.
- */
-
-/* Argument associated with option */
-extern char *optarg;    
-
-/* Index into parent argv vector */
-extern int optind;
-
-/* If error message should be printed */
-extern int opterr;
-
-/* Character checked for validity */
-extern int optopt;
 
 #ifdef __cplusplus
 }
 #endif  /* __cplusplus */
 
-#endif /* #ifndef WCEEX_UNISTD_H */
+#endif /* #ifndef WCEEX_FCNTL_H */

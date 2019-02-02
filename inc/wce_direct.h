@@ -1,11 +1,9 @@
 /*
- * $Id$
+ * $Id: wce_direct.h 62 2007-01-17 00:04:39Z mloskot $
  *
- * wce_timesys.h - SYSTEMTIME and FILETIME conversion utilities.
+ * Created by Stéphane Dunand (sdunand@sirap.fr)
  *
- * Created by Mateusz Loskot (mateusz@loskot.net)
- *
- * Copyright (c) 2006 Taxus SI Ltd.
+ * Copyright (c) 2006 Stéphane Dunand
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the "Software"),
@@ -28,32 +26,33 @@
  * MIT License:
  * http://opensource.org/licenses/mit-license.php
  *
- * Contact:
- * Taxus SI Ltd.
- * http://www.taxussi.com.pl
  */
-#ifndef WCEEX_TIMESYS_H
-#define WCEEX_TIMESYS_H  1
+#ifndef WCEEX_DIRECT_H
+#define WCEEX_DIRECT_H	1
 
-#ifndef _WIN32_WCE
-# error "Only Windows CE target compilation supported"
+#if !defined(_WIN32_WCE)
+# error "Only Windows CE target is supported!"
 #endif
 
-#include <windows.h>
-#include <wce_time.h>
+#include <winbase.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif  /* __cplusplus */
 
-/* Function declarations. */
+int wceex_wmkdir( const wchar_t* dirname );
 
-time_t wceex_filetime_to_time(const FILETIME * filetime);
-time_t wceex_local_to_time(const SYSTEMTIME *systemtime);
-time_t wceex_local_to_time_r(int year, int mon, int day, int hour, int min, int sec);
+char*    wceex_getcwd( char *buffer, int maxlen );
+wchar_t* wceex_wgetcwd( wchar_t *buffer, int maxlen );
+
+int wceex_chdir( const char *dirname );
+int wceex_wchdir( const wchar_t *dirname );
+
+DWORD wceex_GetCurrentDirectoryW( DWORD nBufferLength, LPWSTR lpBuffer );
 
 #ifdef __cplusplus
 }
 #endif  /* __cplusplus */
 
-#endif /* #ifndef WCEEX_TIMESYS_H */
+#endif /* #ifndef WCEEX_DIRECT_H */
+

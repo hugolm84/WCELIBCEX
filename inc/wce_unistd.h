@@ -1,11 +1,11 @@
 /*
- * $Id$
+ * $Id: wce_unistd.h 72 2008-12-29 16:03:45Z sdunand $
  *
- * string.h - string operations
+ * unistd.h - defines symbolic constants, types, and declares miscellaneous functions
  *
  * Created by Mateusz Loskot (mateusz@loskot.net)
  *
- * Copyright (c) 2006 Taxus SI Ltd.
+ * Copyright (c) 2006 Mateusz Loskot
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the "Software"),
@@ -28,40 +28,56 @@
  * MIT License:
  * http://opensource.org/licenses/mit-license.php
  *
- * Contact:
- * Taxus SI Ltd.
- * http://www.taxussi.com.pl
- *
  */
-#ifndef WCEEX_STRING_H
-#define WCEEX_STRING_H	1
+#ifndef WCEEX_UNISTD_H
+#define WCEEX_UNISTD_H 1
 
 #if !defined(_WIN32_WCE)
 # error "Only Winddows CE target is supported!"
 #endif
 
-#include <winbase.h>
+/* Defines NULL pointer value */
+#include <stddef.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif  /* __cplusplus */
 
-/* Redefine CRT functions with new names back to POSIX names. */
+/*
+ * Symbolic constants for second argument to access() function.
+ * All constants and following expressions R_OK|W_OK, R_OK|X_OK
+ * and R_OK|W_OK|X_OK have distinct values.
+ */
 
-#define strdup   _strdup
-#define stricmp  _stricmp
-#define strnicmp _strnicmp
+#define	R_OK	4		/* Test for read permission. */
+#define	W_OK	2		/* Test for write permission. */
+#define	X_OK	1		/* Test for execute (search) permission. */
+#define	F_OK	0		/* Test for existence of file. */
 
-/* Function declarations */
+/* File accessibility functions. */
 
-char * wceex_strerror(int errnum);
+int wceex_waccess(const wchar_t *path, int mode);
+int wceex_access(const char *path, int mode);
 
-LPWSTR wceex_lstrcpyn( LPWSTR lpString1, LPCWSTR lpString2, int iMaxLength );
+/*
+ * Variables used for communication with getopt() function 
+ * to the caller.
+ */
 
+/* Argument associated with option */
+extern char *optarg;    
+
+/* Index into parent argv vector */
+extern int optind;
+
+/* If error message should be printed */
+extern int opterr;
+
+/* Character checked for validity */
+extern int optopt;
 
 #ifdef __cplusplus
 }
 #endif  /* __cplusplus */
 
-#endif /* #ifndef WCEEX_STRING_H */
-
+#endif /* #ifndef WCEEX_UNISTD_H */

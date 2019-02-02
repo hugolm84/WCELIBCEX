@@ -1,5 +1,5 @@
 /*
- * $Id$
+ * $Id: wce_wcstombs.c 62 2007-01-17 00:04:39Z mloskot $
  *
  * Defines wceex_wcstombs() helper function.
  *

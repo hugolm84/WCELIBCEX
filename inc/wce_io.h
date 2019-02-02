@@ -1,5 +1,5 @@
 /*
- * $Id$
+ * $Id: wce_io.h 62 2007-01-17 00:04:39Z mloskot $
  *
  * io.h - file handling functions
  *
@@ -71,7 +71,7 @@ struct _finddata_t
         time_t      time_create;    /* -1L for FAT file systems */
         time_t      time_access;    /* -1L for FAT file systems */
         time_t      time_write;     /* Time of last modification */
-        fsize_t     size;           /* Size of file in bytes */
+        size_t     size;           /* Size of file in bytes */
         char        name[MAX_PATH]; /* Name of file witout complete path */
 };
 # define _FINDDATA_T_DEFINED

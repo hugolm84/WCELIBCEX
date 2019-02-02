@@ -1,5 +1,5 @@
 /*
- * $Id$
+ * $Id: wce_getopt.c 62 2007-01-17 00:04:39Z mloskot $
  *
  * Copyright (c) 1987, 1993, 1994
  * The Regents of the University of California.  All rights reserved.

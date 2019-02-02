@@ -1,5 +1,5 @@
 /*
- * $Id$
+ * $Id: wce_rename.c 62 2007-01-17 00:04:39Z mloskot $
  *
  * Defines rename() function.
  *

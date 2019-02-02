@@ -1,7 +1,7 @@
-/* 
- * $Id$
+/*
+ * $Id: wce_timesys.h 62 2007-01-17 00:04:39Z mloskot $
  *
- * stdio.h - standard buffered input/output
+ * wce_timesys.h - SYSTEMTIME and FILETIME conversion utilities.
  *
  * Created by Mateusz Loskot (mateusz@loskot.net)
  *
@@ -31,31 +31,29 @@
  * Contact:
  * Taxus SI Ltd.
  * http://www.taxussi.com.pl
- *
  */
-#ifndef WCEEX_STDIO_H
-#define WCEEX_STDIO_H    1
+#ifndef WCEEX_TIMESYS_H
+#define WCEEX_TIMESYS_H  1
 
-#if !defined(_WIN32_WCE)
-# error "Only Windows CE target is supported!"
+#ifndef _WIN32_WCE
+# error "Only Windows CE target compilation supported"
 #endif
 
+#include <windows.h>
+#include <wce_time.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif  /* __cplusplus */
 
+/* Function declarations. */
 
-/* Functions declarations */
-
-int wceex_rename(const char *oldfile, const char *newfile);
-int wceex_unlink(const char *filename);
-int wceex_wunlink(const wchar_t *filename);
-void wceex_rewind(FILE *stream);
-
+time_t wceex_filetime_to_time(const FILETIME * filetime);
+time_t wceex_local_to_time(const SYSTEMTIME *systemtime);
+time_t wceex_local_to_time_r(int year, int mon, int day, int hour, int min, int sec);
 
 #ifdef __cplusplus
 }
 #endif  /* __cplusplus */
 
-#endif /* #ifndef WCEEX_STDIO_H */
+#endif /* #ifndef WCEEX_TIMESYS_H */

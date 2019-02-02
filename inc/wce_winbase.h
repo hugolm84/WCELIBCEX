@@ -1,5 +1,5 @@
 /*
- * $Id$
+ * $Id: wce_winbase.h 62 2007-01-17 00:04:39Z mloskot $
  *
  * Created by Stéphane Dunand (sdunand@sirap.fr)
  *

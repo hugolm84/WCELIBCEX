@@ -1,5 +1,5 @@
 /*
- * $Id$
+ * $Id: wce_ctime.c 74 2009-02-04 13:45:23Z mloskot $
  *
  * Defines ctime() function.
  *

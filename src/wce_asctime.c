@@ -1,5 +1,5 @@
 /*
- * $Id$
+ * $Id: wce_asctime.c 70 2007-05-21 18:29:48Z mloskot $
  *
  * Defines asctime() function.
  *

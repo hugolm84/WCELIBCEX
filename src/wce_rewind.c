@@ -1,5 +1,5 @@
 /*
- * $Id$
+ * $Id: wce_rewind.c 62 2007-01-17 00:04:39Z mloskot $
  *
  * Defines rewind() function.
  *

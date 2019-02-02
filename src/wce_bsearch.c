@@ -1,5 +1,5 @@
 /*
- * $Id$
+ * $Id: wce_bsearch.c 76 2009-11-17 23:45:17Z mloskot $
  *
  * Defines bsearch() function.
  *

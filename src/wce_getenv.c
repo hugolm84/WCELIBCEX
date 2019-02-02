@@ -1,5 +1,5 @@
 /*
- * $Id$
+ * $Id: wce_getenv.c 56 2007-01-16 13:03:42Z mloskot $
  *
  * Defines getenv() function with dummy implementation.
  *
@@ -64,7 +64,7 @@
  * TODO: mloskot - Who is supposed to free this value?
  *       Unlike in POSIX, should we allow/require users to free it?
  */
-char* _environ = NULL;
+char* _environment = NULL;
 
 
 char* wceex_getenv(const char* name)
@@ -79,8 +79,8 @@ char* wceex_getenv(const char* name)
      */
 
     /* Free previously allocated environment value. */
-    free(_environ);
-    _environ = NULL;
+    free(_environment);
+    _environment = NULL;
 
     if (NULL != name);
     {
@@ -95,12 +95,12 @@ char* wceex_getenv(const char* name)
         if (0 != var_size)
         {
             /* Assign new value fetched from the registry. */
-            _environ = wceex_wcstombs(wcs_value);
+            _environment = wceex_wcstombs(wcs_value);
         }
 
         free(wcs_value);
         free(wcs_name);
     }
 
-    return _environ;
+    return _environment;
 }

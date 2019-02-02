@@ -1,12 +1,12 @@
 /*
- * $Id$
+ * $Id: wce_path.c 71 2008-12-29 15:54:24Z sdunand $
  *
  * Defines _splitpath, _wsplitpath, _makepath, _wmakepath,
  *         wceex_GetFullPathNameW, _fullpath, _wfullpath functions
  *
- * Created by Stéphane Dunand (sdunand@sirap.fr)
+ * Created by Stï¿½phane Dunand (sdunand@sirap.fr)
  *
- * Copyright (c) 2006 Stéphane Dunand
+ * Copyright (c) 2006 Stï¿½phane Dunand
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the "Software"),
@@ -31,6 +31,7 @@
  *
  */
 
+#include <stdlib.h>
 #include <string.h>
 #include <wce_stdlib.h>
 #include <wce_direct.h>

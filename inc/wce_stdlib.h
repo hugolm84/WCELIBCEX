@@ -1,5 +1,5 @@
 /*
- * $Id$
+ * $Id: wce_stdlib.h 62 2007-01-17 00:04:39Z mloskot $
  *
  * stdlib.h - standard library definitions
  *
@@ -74,8 +74,9 @@ typedef const wchar_t *LPCWSTR, *PCWSTR;
  * NOTE: On Windows NT, _MAX_ENV value is 32767, but on Windows CE
  *       we decied to make it much lower on Windows CE, see value above.
  */
+#ifndef _MAX_ENV
 #define _MAX_ENV    REG_VALUE_SIZE_MAX
-
+#endif
 
 
 #ifdef __cplusplus

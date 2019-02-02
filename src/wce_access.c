@@ -1,5 +1,5 @@
 /*
- * $Id$
+ * $Id: wce_access.c 65 2007-03-27 07:50:37Z sdunand $
  *
  * Defines _access(), _waccess() functions.
  *

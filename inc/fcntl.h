@@ -1,9 +1,11 @@
 /*
- * $Id$
+ * $Id: fcntl.h 62 2007-01-17 00:04:39Z mloskot $
  *
- * Created by Stéphane Dunand (sdunand@sirap.fr)
+ * fcntl.h - wrapper on wce_fcntl.h header
  *
- * Copyright (c) 2006 Stéphane Dunand
+ * Created by Mateusz Loskot (mateusz@loskot.net)
+ *
+ * Copyright (c) 2006 Mateusz Loskot (mateusz@loskot.net)
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the "Software"),
@@ -27,32 +29,20 @@
  * http://opensource.org/licenses/mit-license.php
  *
  */
-#ifndef WCEEX_DIRECT_H
-#define WCEEX_DIRECT_H	1
+#ifndef WCEEX_FCNTL_WRAPPER_H
+#define WCEEX_FCNTL_WRAPPER_H	1
+
+/*
+ * Windows CE SDK does not provide fcntl.h file.
+ * In order to simplify usage of wce_fcntl.h extension, this header is provided.
+ * It directly includes wce_fcntl.h file.
+ */
 
 #if !defined(_WIN32_WCE)
-# error "Only Windows CE target is supported!"
+# error "Only Winddows CE target is supported!"
+#else
+# include "wce_fcntl.h"
 #endif
 
-#include <winbase.h>
 
-#ifdef __cplusplus
-extern "C" {
-#endif  /* __cplusplus */
-
-int wceex_wmkdir( const wchar_t* dirname );
-
-char*    wceex_getcwd( char *buffer, int maxlen );
-wchar_t* wceex_wgetcwd( wchar_t *buffer, int maxlen );
-
-int wceex_chdir( const char *dirname );
-int wceex_wchdir( const wchar_t *dirname );
-
-DWORD wceex_GetCurrentDirectoryW( DWORD nBufferLength, LPWSTR lpBuffer );
-
-#ifdef __cplusplus
-}
-#endif  /* __cplusplus */
-
-#endif /* #ifndef WCEEX_DIRECT_H */
-
+#endif /* #ifndef WCEEX_FCNTL_WRAPPER_H */

@@ -1,5 +1,5 @@
 /*
- * $Id$
+ * $Id: wce_stat.h 62 2007-01-17 00:04:39Z mloskot $
  *
  * sys/stat.h - data returned by the stat() function
  *

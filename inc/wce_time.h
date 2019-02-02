@@ -1,5 +1,5 @@
 /*
- * $Id$
+ * $Id: wce_time.h 70 2007-05-21 18:29:48Z mloskot $
  *
  * time.h and sys/time.h - time types and functions
  *

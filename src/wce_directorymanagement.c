@@ -1,12 +1,12 @@
 /*
- * $Id$
+ * $Id: wce_directorymanagement.c 62 2007-01-17 00:04:39Z mloskot $
  *
  * Defines _getcwd(), GetCurrentDirectoryW() _wgetcwd(), 
  *         _chdir(), _wchdir functions.
  *
- * Created by Stéphane Dunand (sdunand@sirap.fr)
+ * Created by Stï¿½phane Dunand (sdunand@sirap.fr)
  *
- * Copyright (c) 2006 Stéphane Dunand
+ * Copyright (c) 2006 Stï¿½phane Dunand
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the "Software"),
@@ -31,6 +31,7 @@
  *
  */
 
+#include <stdlib.h>
 #include <winbase.h>
 #include <shellapi.h>
 #include <wce_direct.h>

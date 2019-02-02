@@ -1,5 +1,5 @@
 /*
- * $Id$
+ * $Id: wce_strerror.c 62 2007-01-17 00:04:39Z mloskot $
  *
  * Defined strerror() function.
  *

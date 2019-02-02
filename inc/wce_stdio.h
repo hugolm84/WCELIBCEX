@@ -1,11 +1,11 @@
-/*
- * $Id$
+/* 
+ * $Id: wce_stdio.h 62 2007-01-17 00:04:39Z mloskot $
  *
- * fcntl.h - wrapper on wce_fcntl.h header
+ * stdio.h - standard buffered input/output
  *
  * Created by Mateusz Loskot (mateusz@loskot.net)
  *
- * Copyright (c) 2006 Mateusz Loskot (mateusz@loskot.net)
+ * Copyright (c) 2006 Taxus SI Ltd.
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the "Software"),
@@ -28,21 +28,34 @@
  * MIT License:
  * http://opensource.org/licenses/mit-license.php
  *
+ * Contact:
+ * Taxus SI Ltd.
+ * http://www.taxussi.com.pl
+ *
  */
-#ifndef WCEEX_FCNTL_WRAPPER_H
-#define WCEEX_FCNTL_WRAPPER_H	1
-
-/*
- * Windows CE SDK does not provide fcntl.h file.
- * In order to simplify usage of wce_fcntl.h extension, this header is provided.
- * It directly includes wce_fcntl.h file.
- */
+#ifndef WCEEX_STDIO_H
+#define WCEEX_STDIO_H    1
 
 #if !defined(_WIN32_WCE)
-# error "Only Winddows CE target is supported!"
-#else
-# include "wce_fcntl.h"
+# error "Only Windows CE target is supported!"
 #endif
 
 
-#endif /* #ifndef WCEEX_FCNTL_WRAPPER_H */
+#ifdef __cplusplus
+extern "C" {
+#endif  /* __cplusplus */
+
+
+/* Functions declarations */
+
+int wceex_rename(const char *oldfile, const char *newfile);
+int wceex_unlink(const char *filename);
+int wceex_wunlink(const wchar_t *filename);
+void wceex_rewind(FILE *stream);
+
+
+#ifdef __cplusplus
+}
+#endif  /* __cplusplus */
+
+#endif /* #ifndef WCEEX_STDIO_H */
